@@ -188,11 +188,19 @@ http://localhost:3000
 ---
 
 🖼️ Frontend Prototype Images
+## 🖼️ Frontend Dashboard Screenshots
 
-![Camera Risk View](surveillance-dashboard/surveillance-dashboard/src/assets/CameraRiskView.png)
-![Area Risk View](surveillance-dashboard/surveillance-dashboard/src/assets/AreaRiskView.png)
-![Event Intelligence Timeline](surveillance-dashboard/surveillance-dashboard/src/assets/EventIntelligenceTimeline.png)
-![System Health Dashboard](surveillance-dashboard/surveillance-dashboard/src/assets/SystemHealthDashboard.png)
+### Camera Risk View
+![Camera Risk View](src/assets/CameraRiskView.png)
+
+### Area Risk View
+![Area Risk View](src/assets/AreaRiskView.png)
+
+### Event Intelligence Timeline
+![Event Intelligence Timeline](src/assets/EventTimeline.png)
+
+### System Health Dashboard
+![System Health Dashboard](src/assets/SystemHealth.png)
 
 
 ---
