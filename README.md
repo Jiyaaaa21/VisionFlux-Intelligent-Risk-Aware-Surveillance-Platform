@@ -238,38 +238,32 @@ npm run dev
 Open in browser:
 http://localhost:3000
 
+
+
 ## 📐 Architecture & Data Flow Diagrams
 
 ### Overall System Architecture
-
 ![System Architecture](System-DFDs/SystemArchitectureDiagram.png)
 
 ### Frontend Architecture
-
 ![Frontend Architecture](System-DFDs/FrontendArchitectureDiagram.png)
 
-### System Context 
-
+### System Context
 ![System Context DFD](System-DFDs/DFD-SystemContext.png)
 
 ### Core System Breakdown
-
 ![Core System DFD](System-DFDs/DFD-CoreSystemBreakDown.png)
 
 ### Risk & Alert Processing Flow
-
 ![Risk and Alert Logic](System-DFDs/DFD-RiskandAlertLogic.png)
 
 ### Alerting Architecture
-
 ![Alert Architecture](System-DFDs/Alert_Architecture.png)
 
 ### Deployment Architecture
-
 ![Deployment Architecture](System-DFDs/Deployment_Architecture.png)
 
 
- 
 
 These documents describe:  
 
