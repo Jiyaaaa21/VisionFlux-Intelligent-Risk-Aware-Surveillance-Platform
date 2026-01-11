@@ -1,174 +1,138 @@
-# VisionFlux | Intelligent Risk-Aware Surveillance Platform
+# AI-Based Crime and Weapon Detection Backend
 
-##  Problem Statement
-Modern surveillance systems primarily rely on passive video feeds, placing a heavy cognitive burden on human operators. Critical threats such as violence, weapons, or abnormal behavior may go unnoticed due to information overload, delayed interpretation, or lack of contextual intelligence. Existing systems lack real-time risk abstraction, explainability, and structured decision tracking, making incident response reactive rather than proactive.
+## Overview
+This repository contains the **backend implementation** of an AI-powered surveillance intelligence system designed for **crime prevention and public safety**. The backend integrates two complementary deep learning modules:
 
----
+1. **Weapon Detection** using object detection  
+2. **Crime Activity Recognition** using multi-class classification  
 
-##  Proposed Solution
-VisionFlux is an intelligent, risk-aware surveillance platform that transforms raw camera feeds into actionable intelligence. Instead of showing only video streams, the system computes dynamic risk scores, detects anomalous activities, generates alerts, and provides explainable decision timelines. The platform is designed to enhance operator awareness, support faster responses, and ensure transparency in automated decisions.
+Together, these modules enable the system to identify **physical threats (weapons)** and **criminal activities** from visual data, forming a robust foundation for intelligent surveillance applications.
 
----
-
-##  System Overview
-The platform consists of:
-- AI-driven video inference for activity and threat detection
-- Risk aggregation at camera and zone levels
-- Alert generation with confidence metrics
-- Explainable event timelines
-- A modular, production-grade frontend dashboard
+The backend is modular, scalable, and designed for real-world deployment in surveillance and security systems.
 
 ---
 
-## 🏗️ Architecture & Data Flow Diagrams
+## Backend Architecture Summary
 
-### Overall System Architecture
-![System Architecture](System-DFDs/SystemArchitectureDiagram.png)
+The backend consists of two independent but interoperable AI pipelines:
 
-### Frontend Architecture
-![Frontend Architecture](System-DFDs/FrontendArchitectureDiagram.png)
+- **Pipeline A:** Weapon Detection (Spatial Threat Localization)  
+- **Pipeline B:** Crime Activity Recognition (Behavioral Threat Classification)  
 
-### System Context Diagram
-![System Context DFD](System-DFDs/DFD-SystemContext.png)
-
-### Core System Breakdown
-![Core System DFD](System-DFDs/DFD-CoreSystemBreakDown.png)
-
-### Risk & Alert Processing Flow
-![Risk and Alert Logic](System-DFDs/DFD-RiskandAlertLogic.png)
-
-### Alerting Architecture
-![Alert Architecture](System-DFDs/Alert_Architecture.png)
-
-### Deployment Architecture
-![Deployment Architecture](System-DFDs/Deployment_Architecture.png)
+Each pipeline can operate independently or be fused at the decision level for comprehensive threat assessment.
 
 ---
 
-##  Flowcharts
-The system follows structured operational flows:
-- Video ingestion → Model inference → Risk scoring
-- Risk escalation → Alert generation → Operator notification
-- Alert resolution → Risk normalization → Timeline logging
+## Model 1: Weapon Detection Backend
 
-These flows ensure traceability, accountability, and explainability across the system lifecycle.
+### Description
+The weapon detection module is implemented using **YOLOv8**, a real-time object detection architecture optimized for speed and accuracy. This module detects weapons in images by predicting **bounding boxes and confidence scores**, enabling precise localization of threats within a scene.
 
----
+Unlike classification-based approaches, this module performs **object-level detection**, making it suitable for real-time surveillance and CCTV analysis.
 
-##  Demo Video
-▶ **Demo & Prototype Walkthrough:**  
-[VisionFlux Dashboard Demonstration](Prototype_Demonstration/VisionFlux-Dashboard.mp4)
+### Technical Details
+- Model Architecture: YOLOv8  
+- Framework: PyTorch (Ultralytics)  
+- Task Type: Object Detection  
+- Input: Images  
+- Output: Bounding boxes with confidence scores  
+- Acceleration: GPU-enabled training and inference  
 
----
-
-##  Prototype
-The project includes:
-- A fully functional frontend dashboard
-- Simulated real-time risk updates
-- Interactive camera tiles, alerts, timelines, and system health views
-- Logged CSV outputs for auditability
-
-The prototype demonstrates realistic operational behavior suitable for real-world integration.
+### Capabilities
+- Real-time weapon localization  
+- High-speed inference  
+- Scalable to multi-class weapon detection  
+- Deployment-ready model formats  
 
 ---
 
-##  Research Work
-The system design is informed by research in:
-- Intelligent video surveillance
-- Activity recognition and anomaly detection
-- Explainable AI (XAI)
-- Risk-based decision systems
-- Human-in-the-loop monitoring
+## Model 2: Crime Activity Recognition Backend
 
-The backend experimentation includes model-based weapon detection and activity inference using deep learning.
+### Model Description
+The crime activity recognition module is a **multi-class classification system** trained on the **UCF-Crime dataset**. It uses a **DenseNet121 backbone** with ImageNet-pretrained weights to extract high-level spatial features from RGB video frames resized to **64×64 resolution**.
 
----
+A fully connected classification head with dropout layers is used for regularization. The final softmax layer predicts one of **14 crime-related activity classes**, covering both violent and non-violent events.
 
-##  References
-1. OpenCV – Computer Vision Library  
-2. PyTorch – Deep Learning Framework  
-3. Research papers on anomaly detection in surveillance systems  
-4. Explainable AI methodologies for safety-critical systems  
-5. Industry best practices in security monitoring dashboards
+### Training Configuration
+- Backbone: DenseNet121 (ImageNet pretrained)  
+- Loss Function: Categorical Cross-Entropy  
+- Optimizer: Stochastic Gradient Descent (SGD)  
+- Evaluation Metric: ROC–AUC (micro-average)  
+- Input: RGB video frames  
+- Output: Crime activity class probabilities  
 
----
+### Evaluation Results
+- Overall ROC–AUC (micro-average): ~0.84  
+- Robust class-wise discrimination across violent and non-violent activities  
+- Clear separation between normal and anomalous events observed via ROC curves  
 
-##  Tech Stack
-
-### Frontend
-- React (Vite)
-- Tailwind CSS (custom dark dashboard theme)
-- React Context + Reducer
-- Lucide React icons
-- Component-driven architecture
-
-## Frontend Dashboard 
-
-![Camera Risk View](surveillance-dashboard/surveillance-dashboard/src/assets/CameraRiskView.png)
-![Area Risk View](surveillance-dashboard/surveillance-dashboard/src/assets/AreaRiskView.png)
-![Event Intelligence Timeline](surveillance-dashboard/surveillance-dashboard/src/assets/EventIntelligenceTimeline.png)
-![System Health Dashboard](surveillance-dashboard/surveillance-dashboard/src/assets/SystemHealthDashboard.png)
-
-
-### Backend (Planned / Experimental)
-- Python
-- Deep learning inference models
-- Video analytics pipelines
-- Risk aggregation logic
+These results demonstrate strong representational capacity for large-scale crime activity recognition under challenging visual conditions and class imbalance.
 
 ---
 
-##  Current Capabilities
-- Risk-aware visualization beyond raw video feeds
-- Explainable system decision tracking
-- Alert generation and resolution workflow
-- Modular and scalable UI architecture
-- Ready for real-time backend and camera integration
+## End-to-End Backend Workflow
+
+```
+
+Input Video / Image Stream
+|
+v
+Frame Extraction & Preprocessing
+|
++---------------------------+
+|                           |
+v                           v
+Weapon Detection (YOLOv8)     Crime Activity Recognition (DenseNet121)
+|                           |
+v                           v
+Weapon Localization         Activity Classification (14 classes)
+|                           |
++-----------+---------------+
+|
+v
+Unified Threat Assessment
+(Weapon presence + Activity context)
+
+```
+## Backend Use Cases
+- Intelligent surveillance systems  
+- Public safety monitoring  
+- Crime and violence detection  
+- Smart city security infrastructure  
+- AI-assisted law enforcement systems  
 
 ---
 
-##  Future Enhancements
-**Backend**
-- Live inference services
-- RTSP/IP camera stream support
-- Scalable alerting pipeline
-- Edge and cloud deployment
+## Phase 2 Roadmap (Backend Enhancements)
 
-**Frontend**
-- WebSocket-based live updates
-- Incident reporting and export
-- Role-based access control (RBAC)
-- Operator acknowledgement workflows
+### Phase 2.1: Temporal Modeling
+- Integrate CNN–LSTM, Temporal Convolutional Networks (TCN), or 3D CNNs to capture motion dynamics across video sequences.
 
----
+### Phase 2.2: Attention Mechanisms
+- Add spatial and temporal attention modules to focus on salient regions and key frames relevant to criminal behavior.
 
-##  Disclaimer
-VisionFlux is a research and demonstration prototype developed for academic and evaluative purposes. It does not perform automated enforcement or real-world surveillance actions.
+### Phase 2.3: Multi-Class Weapon Detection
+- Extend weapon detection to distinguish between weapon categories such as pistols, rifles, and automatic firearms.
 
----
+### Phase 2.4: Class Imbalance Mitigation
+- Apply focal loss, class-weighted training, or adaptive sampling strategies to improve performance on rare crime classes.
 
-## 👥 Team Contributions
-**Frontend Development**
-- Dashboard architecture and UI design
-- Risk visualization and explainability layers
-- Event timelines and alert workflows
-- System usability and operational awareness
+### Phase 2.5: Multi-Modal Learning
+- Incorporate optical flow and audio cues to enhance robustness in complex surveillance environments.
 
-**Backend & Research**
-- Model experimentation
-- Risk logic design
-- Data flow and architecture planning
+### Phase 2.6: Real-Time and Edge Deployment
+- Optimize models using pruning, quantization, and TensorRT for real-time inference on edge and CCTV devices.
 
 ---
 
-## Submission Notes
-- All diagrams, documentation, and code follow proper Git practices
-- Feature branches and pull requests were used
-- Contributions are clearly visible in commit history
-- Architecture and DFDs are included as required
+## Conclusion
+This backend system demonstrates a comprehensive and scalable approach to AI-driven surveillance by combining **weapon detection** and **crime activity recognition**. By leveraging YOLOv8 for spatial threat localization and DenseNet121 for behavioral analysis, the system provides a strong foundation for real-world security applications. The planned Phase 2 enhancements aim to evolve this backend into a **production-ready, real-time surveillance intelligence platform**.
 
 ---
 
-**VisionFlux — Turning surveillance data into actionable intelligence.**
+## License
+This backend is developed for educational, research, and hackathon purposes.
+```
 
+---
 
