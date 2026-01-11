@@ -104,10 +104,10 @@ The backend experimentation includes model-based weapon detection and activity i
 
 ## Frontend Dashboard 
 
-![Camera Risk View](surveillance-dashboard/surveillance-dashboard/src/assets/CameraRiskView.png)
-![Area Risk View](surveillance-dashboard/surveillance-dashboard/src/assets/AreaRiskView.png)
-![Event Intelligence Timeline](surveillance-dashboard/surveillance-dashboard/src/assets/EventIntelligenceTimeline.png)
-![System Health Dashboard](surveillance-dashboard/surveillance-dashboard/src/assets/SystemHealthDashboard.png)
+![Camera Risk View](surveillance-dashboard/src/assets/CameraRiskView.png)
+![Area Risk View](surveillance-dashboard/src/assets/AreaRiskView.png)
+![Event Intelligence Timeline](surveillance-dashboard/src/assets/EventIntelligenceTimeline.png)
+![System Health Dashboard](surveillance-dashboard/src/assets/SystemHealthDashboard.png)
 
 
 ### Backend (Planned / Experimental)
