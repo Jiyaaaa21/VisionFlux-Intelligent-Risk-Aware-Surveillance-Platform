@@ -78,8 +78,10 @@ const CameraTile = ({ camera }) => {
 
   const handleClick = (e) => {
     e.stopPropagation();
+    if (state.ui.modalCamera) return; // prevent click-through reopen
     actions.openCameraModal(camera.id);
   };
+
 
   const isStreaming = camera.status !== 'offline';
   const streamDelay = Math.floor((new Date() - new Date(camera.lastUpdated)) / 1000);
