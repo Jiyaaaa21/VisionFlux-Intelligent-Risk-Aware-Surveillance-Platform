@@ -187,19 +187,15 @@ http://localhost:3000
 
 ---
 
-🖼️ Screenshots
+🖼️ Frontend Prototype Images
 
 * Camera Risk View
-* Area Risk View
-* Event Intelligence Timeline
-* System Health Dashboard
+![CameraRiskView](surveillance-dashboard/src/assets\CameraRiskView.png)
+![AreaRiskView](surveillance-dashboard/src/assets\AreaRiskView.png)
+![EvenIntelligenceTimeline](surveillance-dashboard/src/assets/EventTimeline.png)
+![SystemHealthDashboard](surveillance-dashboard\src\assets\SystemHealth.png)
 
 ---
-
-# Architecture Documentation
-
-* Data Flow Diagram: docs/data-flow-diagram.md
-* Database Schema: docs/database-schema.md
 
 These documents describe:
 
