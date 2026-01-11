@@ -23,7 +23,7 @@ Each pipeline can operate independently or be fused at the decision level for co
 
 ---
 
-## Module 1: Weapon Detection Backend
+## Model 1: Weapon Detection Backend
 
 ### Description
 The weapon detection module is implemented using **YOLOv8**, a real-time object detection architecture optimized for speed and accuracy. This module detects weapons in images by predicting **bounding boxes and confidence scores**, enabling precise localization of threats within a scene.
@@ -46,7 +46,7 @@ Unlike classification-based approaches, this module performs **object-level dete
 
 ---
 
-## Module 2: Crime Activity Recognition Backend
+## Model 2: Crime Activity Recognition Backend
 
 ### Model Description
 The crime activity recognition module is a **multi-class classification system** trained on the **UCF-Crime dataset**. It uses a **DenseNet121 backbone** with ImageNet-pretrained weights to extract high-level spatial features from RGB video frames resized to **64×64 resolution**.
@@ -93,8 +93,7 @@ v
 Unified Threat Assessment
 (Weapon presence + Activity context)
 
-
-
+```
 ## Backend Use Cases
 - Intelligent surveillance systems  
 - Public safety monitoring  
@@ -137,4 +136,3 @@ This backend is developed for educational, research, and hackathon purposes.
 
 ---
 
-Just tell me what you want to do next.
