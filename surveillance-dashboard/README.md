@@ -189,11 +189,11 @@ http://localhost:3000
 
 🖼️ Frontend Prototype Images
 
-* Camera Risk View
-![CameraRiskView](surveillance-dashboard/src/assets\CameraRiskView.png)
-![AreaRiskView](surveillance-dashboard/src/assets\AreaRiskView.png)
-![EvenIntelligenceTimeline](surveillance-dashboard/src/assets/EventTimeline.png)
-![SystemHealthDashboard](surveillance-dashboard\src\assets\SystemHealth.png)
+![Camera Risk View](surveillance-dashboard/surveillance-dashboard/src/assets/CameraRiskView.png)
+![Area Risk View](surveillance-dashboard/surveillance-dashboard/src/assets/AreaRiskView.png)
+![Event Intelligence Timeline](surveillance-dashboard/surveillance-dashboard/src/assets/EventIntelligenceTimeline.png)
+![System Health Dashboard](surveillance-dashboard/surveillance-dashboard/src/assets/SystemHealthDashboard.png)
+
 
 ---
 
