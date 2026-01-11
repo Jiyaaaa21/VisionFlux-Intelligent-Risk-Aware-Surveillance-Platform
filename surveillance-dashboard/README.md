@@ -1,143 +1,117 @@
+# VisionFlux
 
-# VisionFlux | Intelligent Risk-Aware Surveillance Platform  
-### Frontend Dashboard
+## Intelligent Risk-Aware Surveillance Platform
 
 ---
 
 ##  Overview
 
-VisionFlux is an intelligent, risk-aware surveillance platform designed to provide real-time situational awareness for public safety and security operations.  
-This repository contains the **frontend dashboard** of the VisionFlux system, which acts as a centralized command center for monitoring surveillance cameras, assessing risk levels, tracking alerts, and understanding system decisions through explainable intelligence.
+VisionFlux is an intelligent surveillance platform engineered to deliver **real-time situational awareness, risk assessment, and operational transparency** for public safety and security environments.
 
-The frontend is built as a **production-style, modular, and scalable dashboard**, architected to integrate seamlessly with real-time backend inference services and live camera feeds in subsequent phases.
+Unlike traditional surveillance systems that rely on passive video monitoring, VisionFlux emphasizes **risk intelligence, explainability, and decision traceability**. The platform transforms visual signals into actionable insights by combining camera-level analysis, area-level aggregation, alerting logic, and a comprehensive audit trail of system behavior.
 
----
-
-##  Objectives
-
-- Provide a centralized operational view for surveillance monitoring
-- Visualize camera-level and area-level risk intelligence
-- Enable explainability through an auditable event timeline
-- Support alert escalation and system-level awareness
-- Maintain a clean, extensible architecture for future real-time integration
+This repository contains the **complete frontend implementation** of VisionFlux, along with architectural documentation required for evaluation and further system integration.
 
 ---
 
-##  Application Views
+## Core Design Philosophy
 
-The frontend is structured into **four core operational views**, each serving a distinct purpose.
+VisionFlux is built around the following principles:
 
----
-
-## 1 Camera Risk View
-
-**Purpose:** Tactical, camera-level monitoring
-
-### Key Features
-- 3×3 dynamic camera grid layout
-- Individual camera tiles displaying:
-  - Risk score
-  - Confidence level
-  - Zone association
-  - Status (Normal / Suspicious / High Risk)
-- Automatic visual escalation of high-risk cameras
-- Click-to-expand camera modal for deep inspection
-- Integrated zone overview panel
-- System health gauges
-- Active alerts list
-- Snapshot refresh cycle aligned with system timing
-
-### Camera Modal Capabilities
-- Enlarged camera feed
-- Risk score and confidence metrics
-- High-risk frame count
-- Risk trend visualization (last 5 snapshots)
-- Alert history for the selected camera
-- Camera metadata and zone details
-- Multiple close mechanisms (button, backdrop, ESC key)
+* **Risk-first monitoring** rather than raw video consumption
+* **Explainability** as a first-class system feature
+* **Operator-centric design** for clarity under pressure
+* **Modular, backend-agnostic architecture** for scalability
+* **Auditability and traceability** of every system decision
 
 ---
 
-## 2 Area Risk View
+##  Platform Capabilities
 
-**Purpose:** Strategic, zone-level situational awareness
+### 1 Camera-Level Intelligence
 
-### Key Features
-- Aggregated zone-level risk visualization
-- Zone status indicators (Normal / Suspicious / High Risk)
-- Risk persistence awareness across time
-- System-wide KPIs
-- Abstract zone representation (non-geographic by design)
-- Cross-camera risk aggregation and fusion
+* Multi-camera monitoring dashboard (3×3 grid)
+* Per-camera risk score and confidence visualization
+* Status classification: Normal / Suspicious / High Risk
+* Automatic visual escalation for high-risk cameras
+* Detailed drill-down via camera modal:
 
----
-
-## 3 Event Intelligence Timeline
-
-**Purpose:** Explainability and audit trail
-
-### Key Features
-- Chronological feed of system decisions
-- Logged events include:
-  - Camera risk changes
-  - Escalations and normalizations
-  - Alert generation and resolution
-  - Zone-level risk updates
-  - System health status changes
-- Human-readable explanations (no ML jargon)
-- Filterable by:
-  - Camera
-  - Zone
-  - Event type
-- Searchable event descriptions
-- Designed to answer:
-  > “Why did the system act the way it did?”
+  * Risk trends
+  * Confidence metrics
+  * High-risk frame persistence
+  * Alert history
+  * Camera and zone metadata
 
 ---
 
-## 4 System Health & Readiness View
+### 2 Area-Level Situational Awareness
 
-**Purpose:** Operational reliability and system oversight
-
-### Key Features
-- System mode indicator (Simulation / Operational)
-- Infrastructure health indicators
-- Active alert count
-- Camera availability status
-- CPU, memory, and network usage indicators
-- Dashboard-style layout aligned with real-world monitoring systems
+* Zone-based risk aggregation
+* Area status indicators derived from multiple cameras
+* Risk persistence monitoring across time
+* Strategic view for macro-level decision making
+* Abstract zone representation (intentionally non-geographic)
 
 ---
 
-##  Global Frontend Architecture
+### 3 Event Intelligence & Explainability
+
+* Chronological event timeline capturing system behavior
+* Tracks:
+
+  * Risk escalations and normalizations
+  * Alert creation and resolution
+  * Zone-level risk changes
+  * System health transitions
+* Human-readable explanations for each system action
+* Filterable by camera, zone, and event type
+* Designed to answer:
+
+  > **“Why did the system take this action?”**
+
+---
+
+### 4 System Health & Operational Readiness
+
+* System mode visibility (Simulation / Operational)
+* Infrastructure health indicators
+* Active alert count
+* Camera availability status
+* Monitoring-style dashboard aligned with real-world control rooms
+
+---
+
+##  Frontend Architecture
 
 ### State Management
-- Centralized global state using **React Context + Reducer**
-- Unified management of:
-  - Cameras
-  - Zones
-  - Alerts
-  - Event timeline
-  - System health
-  - UI state (modals, selections, highlights)
 
-### Simulation Engine
-- Controlled simulation lifecycle:
-  - Start / Pause
-  - Reset
-  - Speed control
-- Manual override actions for testing escalation logic
-- Deterministic state-driven risk progression
-- Timeline and alerts generated from system state changes
+* Centralized global state using **React Context + Reducer**
+* Unified handling of:
+
+  * Cameras
+  * Zones
+  * Alerts
+  * Event timeline
+  * System health
+  * UI state (modals, highlights, selections)
+
+### Simulation & Control Layer
+
+* Playback control (start, pause, reset)
+* Speed control for system progression
+* Manual override actions for testing escalation logic
+* Deterministic, state-driven updates across the platform
 
 ### Logging & Audit
-- Structured system logs
-- Downloadable CSV log export
-- Event-driven logging for:
-  - Risk changes
-  - Alerts
-  - Zone updates
-  - System status changes
+
+* Centralized logging service
+* Structured logs for:
+
+  * Risk changes
+  * Alerts
+  * Zone updates
+  * System status transitions
+* CSV export for offline analysis and auditing
 
 ---
 
@@ -162,92 +136,119 @@ src/
 │   └── timelineHelpers.js
 ├── App.jsx
 ├── main.jsx
+├── index.jsx
 └── index.css
-
-
-## 🛠️ Tech Stack
-
-- **Framework:** React (Vite)
-- **Styling:** Tailwind CSS (custom dark dashboard theme)
-- **State Management:** React Context + Reducer
-- **Icons:** Lucide React
-- **Build Tooling:** Vite
-- **Architecture:** Component-driven, backend-agnostic
+```
 
 ---
 
-## ▶ Running the Project Locally
+🛠️ Tech Stack
+
+Framework: React (Vite)
+
+Styling: Tailwind CSS (custom dark dashboard theme)
+
+State Management: React Context + Reducer
+
+Icons: Lucide React
+
+Build Tooling: Vite
+
+Architecture: Component-driven, backend-agnostic
+
+---
+
+▶️ Running the Project Locally
 
 ### Prerequisites
 
-- Node.js (v18+ recommended)
-- npm
+* Node.js (v18+ recommended)
+* npm
 
 ### Setup
 
 ```bash
-git clone https://github.com/Jiyaaaa21/VisionFlux-Intelligent-Risk-Aware-Surveillance-Platform/tree/main
-
+git clone https://github.com/Jiyaaaa21/VisionFlux-Intelligent-Risk-Aware-Surveillance-Platform
 cd surveillance-dashboard
 npm install
+```
 
-### ▶ Start Development Server
+### Start Development Server
 
 ```bash
 npm run dev
+```
 
-Open in Browser
+Open in browser:
+
+```
 http://localhost:3000
+```
 
-## Screenshots
+---
 
-### Camera Risk View
-![Camera Risk View](src/assets/CameraRiskView.png)
+🖼️ Screenshots
 
-### Area Risk View
-![Area Risk View](src/assets/AreaRiskView.png)
+* Camera Risk View
+* Area Risk View
+* Event Intelligence Timeline
+* System Health Dashboard
 
-### Event Timeline
-![Event Timeline](src/assets/EventTimeline.png)
+---
 
-### System Health
-![System Health](src/assets/SystemHealth.png)
+# Architecture Documentation
 
+* Data Flow Diagram: docs/data-flow-diagram.md
+* Database Schema: docs/database-schema.md
 
-🚀 Current Capabilities
+These documents describe:
 
-- Fully functional, production-style frontend dashboard
-- Risk-aware visualization beyond raw video feeds
-- Explainable system decision tracking
-- Modular and scalable UI architecture
-- Ready for real-time backend and camera integration
+* End-to-end data movement
+* Risk processing flow
+* Alert lifecycle
+* Storage and audit design
 
- Future Enhancements (Phase 2+)
+---
 
-- Backend Integration
-- Real-time inference services
-- Live camera feeds (RTSP / IP streams)
-- Risk abstraction from model probabilities
-- Scalable alerting pipeline
-- Edge and cloud deployment support
+# Current State
 
-Frontend Enhancements
+* Fully functional, production-style frontend
+* Risk-aware visualization beyond raw video feeds
+* Transparent and explainable system behavior
+* Modular and scalable UI architecture
+* Designed for seamless real-time backend integration
 
-- Live risk updates via WebSockets
-- Incident export and reporting
-- Role-based access control (RBAC)
-- Operator acknowledgement workflows
+---
+
+## Roadmap (Phase 2+)
+
+### Backend & System
+
+* Real-time inference services
+* Live camera ingestion (RTSP / IP streams)
+* Risk fusion from model probabilities
+* Scalable alerting and notification pipeline
+* Edge and cloud deployment support
+
+### Frontend
+
+* Live updates via WebSockets
+* Incident export and reporting
+* Role-based access control (RBAC)
+* Operator acknowledgement and workflow tooling
+
+---
 
 ⚠️ Disclaimer
-
 VisionFlux is a research and demonstration prototype developed for academic and evaluative purposes.
 It does not perform automated enforcement or real-world surveillance actions.
 
-👥 Team – Frontend
+---
 
+ Team – Frontend
 Frontend design and implementation by the VisionFlux frontend team, focusing on:
 
-- Risk visualization
-- Explainability
-- System usability
-- Operational awareness
+* Risk visualization
+* Explainability
+* System usability
+* Operational awareness
