@@ -242,26 +242,27 @@ http://localhost:3000
 
 ## 📐 Architecture & Data Flow Diagrams
 
+
 ### Overall System Architecture
-![System Architecture](System-DFDs/SystemArchitectureDiagram.png)
+![System Architecture](./System-DFDs/SystemArchitectureDiagram.png)
 
 ### Frontend Architecture
-![Frontend Architecture](System-DFDs/FrontendArchitectureDiagram.png)
+![Frontend Architecture](./System-DFDs/FrontendArchitectureDiagram.png)
 
-### System Context
-![System Context DFD](System-DFDs/DFD-SystemContext.png)
+### System Context (DFD – Level 0)
+![System Context DFD](./System-DFDs/DFD-SystemContext.png)
 
-### Core System Breakdown
-![Core System DFD](System-DFDs/DFD-CoreSystemBreakDown.png)
+### Core System Breakdown (DFD – Level 1)
+![Core System DFD](./System-DFDs/DFD-CoreSystemBreakDown.png)
 
 ### Risk & Alert Processing Flow
-![Risk and Alert Logic](System-DFDs/DFD-RiskandAlertLogic.png)
+![Risk and Alert Logic](./System-DFDs/DFD-RiskandAlertLogic.png)
 
 ### Alerting Architecture
-![Alert Architecture](System-DFDs/Alert_Architecture.png)
+![Alert Architecture](./System-DFDs/Alert_Architecture.png)
 
 ### Deployment Architecture
-![Deployment Architecture](System-DFDs/Deployment_Architecture.png)
+![Deployment Architecture](./System-DFDs/Deployment_Architecture.png)
 
 
 
