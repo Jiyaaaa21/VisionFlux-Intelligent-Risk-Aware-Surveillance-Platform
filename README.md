@@ -102,6 +102,14 @@ The backend experimentation includes model-based weapon detection and activity i
 - Lucide React icons
 - Component-driven architecture
 
+## Frontend Dashboard 
+
+![Camera Risk View](surveillance-dashboard/surveillance-dashboard/src/assets/CameraRiskView.png)
+![Area Risk View](surveillance-dashboard/surveillance-dashboard/src/assets/AreaRiskView.png)
+![Event Intelligence Timeline](surveillance-dashboard/surveillance-dashboard/src/assets/EventIntelligenceTimeline.png)
+![System Health Dashboard](surveillance-dashboard/surveillance-dashboard/src/assets/SystemHealthDashboard.png)
+
+
 ### Backend (Planned / Experimental)
 - Python
 - Deep learning inference models
