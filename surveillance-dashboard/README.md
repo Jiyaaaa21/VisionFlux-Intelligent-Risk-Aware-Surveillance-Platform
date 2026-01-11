@@ -1,6 +1,6 @@
 # VisionFlux
 
-## Intelligent Risk-Aware Surveillance Platform
+## Intelligent Risk-Aware Surveillance Dashboard
 
 ---
 
