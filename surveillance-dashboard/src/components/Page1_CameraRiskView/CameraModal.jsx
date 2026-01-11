@@ -41,9 +41,16 @@ const CameraModal = () => {
     camera.riskScore
   ].map(r => Math.max(0.1, Math.min(1.0, r)));
 
+  //  SINGLE SOURCE OF TRUTH FOR CLOSING
+  const handleClose = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    actions.closeCameraModal();
+  };
+
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
-      actions.closeCameraModal();
+      handleClose(e);
     }
   };
 
@@ -76,7 +83,7 @@ const CameraModal = () => {
 
           <button
             type="button"
-            onClick={actions.closeCameraModal}
+            onClick={handleClose}
             className="text-slate-400 hover:text-slate-200 transition-colors p-2 hover:bg-slate-800 rounded-lg"
           >
             <X className="w-6 h-6" />
@@ -127,7 +134,7 @@ const CameraModal = () => {
         <div className="sticky bottom-0 bg-slate-900 border-t border-slate-800 px-6 py-4">
           <button
             type="button"
-            onClick={actions.closeCameraModal}
+            onClick={handleClose}
             className="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 py-3 rounded-lg font-semibold transition-colors"
           >
             Close
@@ -139,3 +146,4 @@ const CameraModal = () => {
 };
 
 export default CameraModal;
+
