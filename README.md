@@ -1,16 +1,16 @@
 # VisionFlux | Intelligent Risk-Aware Surveillance Platform
 
-## 📌 Problem Statement
+## Problem Statement
 Modern surveillance systems primarily rely on passive video feeds, placing a heavy cognitive burden on human operators. Critical threats such as violence, weapons, or abnormal behavior may go unnoticed due to information overload, delayed interpretation, or lack of contextual intelligence. Existing systems lack real-time risk abstraction, explainability, and structured decision tracking, making incident response reactive rather than proactive.
 
 ---
 
-## 💡 Proposed Solution
+## Proposed Solution
 VisionFlux is an intelligent, risk-aware surveillance platform that transforms raw camera feeds into actionable intelligence. Instead of showing only video streams, the system computes dynamic risk scores, detects anomalous activities, generates alerts, and provides explainable decision timelines. The platform is designed to enhance operator awareness, support faster responses, and ensure transparency in automated decisions.
 
 ---
 
-## 🧠 System Overview
+## System Overview
 The platform consists of:
 - AI-driven video inference for activity and threat detection
 - Risk aggregation at camera and zone levels
@@ -20,7 +20,7 @@ The platform consists of:
 
 ---
 
-## 🏗️ Architecture & Data Flow Diagrams
+## Architecture & Data Flow Diagrams
 
 ### Overall System Architecture
 ![System Architecture](System-DFDs/SystemArchitectureDiagram.png)
@@ -45,7 +45,7 @@ The platform consists of:
 
 ---
 
-## 🔄 Flowcharts
+## Flowcharts
 The system follows structured operational flows:
 - Video ingestion → Model inference → Risk scoring
 - Risk escalation → Alert generation → Operator notification
@@ -55,8 +55,8 @@ These flows ensure traceability, accountability, and explainability across the s
 
 ---
 
-## 🎥 Demo Video
-▶️ **Demo & Prototype Walkthrough:**  
+## Demo Video
+ **Demo & Prototype Walkthrough:**  
 [VisionFlux Dashboard Demonstration](Prototype_Demonstration/VisionFlux-Dashboard.mp4)
 
 ---
